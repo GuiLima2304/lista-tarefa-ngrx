@@ -30,3 +30,10 @@
 <ng-template #elseBlock>
   FALHA
 </ng-template>
+
+<div [ngSwitch]="name">
+  <div *ngSwitchCase="'a'">A text</div>
+  <div *ngSwitchCase="'b'">B text</div>
+  <div *ngSwitchCase="'c'">C text</div>
+  <div *ngSwitchDefault>Default</div>
+</div>

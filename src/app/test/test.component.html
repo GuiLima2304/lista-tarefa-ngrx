@@ -5,3 +5,10 @@
 <input [id]="myId" value="Estag">
 <input id="myId" value="Estag">
 <input id="{{myId}}" value="Estag">
+
+<div>
+  <input type="text" [(ngModel)]="number">
+  <h1 [class]="className">Positive</h1>
+  <h1 [class.positive]="number > 0">Positive conditional</h1>
+  <h1 [ngClass]="{ 'positive': number > 0, 'negative': number < 0 }">{{ number }}</h1>
+</div>

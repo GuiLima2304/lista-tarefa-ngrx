@@ -7,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  public name = "Estagiario";
+  name = "Estagiario";
   myId = "estagId";
 
   number = -1;
   className = "positive";
+
+  colors = ['red', 'green', 'yellow']
 
   constructor() { }
 

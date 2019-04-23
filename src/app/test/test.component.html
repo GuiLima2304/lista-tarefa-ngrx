@@ -37,3 +37,9 @@
   <div *ngSwitchCase="'c'">C text</div>
   <div *ngSwitchDefault>Default</div>
 </div>
+
+<br><br>
+
+<div *ngFor="let color of colors; index as i; first as f; last as l; odd as o; even as e">
+  <div [style.color]="color">{{ i }}-{{ color }}</div>
+</div>

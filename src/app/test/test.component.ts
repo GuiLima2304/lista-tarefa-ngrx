@@ -22,4 +22,8 @@ export class TestComponent implements OnInit {
     return "A culpa é do " + this.name;
   }
 
+  inverter(){
+    this.number = this.number * -1;
+  }
+
 }

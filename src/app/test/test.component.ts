@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
+  name = "Estagiario";
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  getName(){
+    return "A culpa é do " + this.name;
   }
 
 }

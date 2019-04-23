@@ -22,3 +22,11 @@
 <div>
   <input type="text" [(ngModel)]="name">
 </div>
+
+<div *ngIf="name == 'teste'; else elseBlock">
+  SUCESSO
+</div>
+
+<ng-template #elseBlock>
+  FALHA
+</ng-template>

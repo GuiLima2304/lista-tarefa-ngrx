@@ -10,7 +10,7 @@ export class TestComponent implements OnInit {
   name = "Estagiario";
   myId = "estagId";
 
-  number = 1;
+  number = -1;
   className = "positive";
 
   constructor() { }

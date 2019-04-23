@@ -11,3 +11,9 @@
   <h1 [class.positive]="number > 0">Positive conditional</h1>
   <h1 [ngClass]="{ 'positive': number > 0, 'negative': number < 0 }">{{ number }}</h1>
 </div>
+
+<div>
+  <h1 [style.color]="number > 0 ? 'green' : 'red'">Positive conditional</h1>
+  <h1 [ngStyle]="{ 'color': number > 0 ? 'green' : 'red' }">{{ number }}</h1>
+</div>
+  

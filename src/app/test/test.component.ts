@@ -19,6 +19,7 @@ export class TestComponent implements OnInit {
   className = "positive";
 
   colors = ['red', 'green', 'yellow']
+  date = new Date();
 
   constructor() { }
 

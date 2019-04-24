@@ -43,3 +43,8 @@
 <div *ngFor="let color of colors; index as i; first as f; last as l; odd as o; even as e">
   <div [style.color]="color">{{ i }}-{{ color }}</div>
 </div>
+
+<br><br>
+
+<h1>{{ parentData }}</h1>
+<button (click)="fireEvent()">Emit to parent</button>

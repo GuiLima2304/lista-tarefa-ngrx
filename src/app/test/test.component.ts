@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-test',
@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
+
+  @Input() public parentData;
+  //@Input('parentData') public name;
+
+  @Output() public childEvent = new EventEmitter();
 
   name = "Estagiario";
   myId = "estagId";
@@ -26,6 +31,10 @@ export class TestComponent implements OnInit {
 
   inverter(){
     this.number = this.number * -1;
+  }
+
+  fireEvent(){
+    this.childEvent.emit('Sou o estaguinho, seu amiguinho');
   }
 
 }

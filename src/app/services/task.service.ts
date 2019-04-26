@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ITaskListResponse } from '../models/taskListResponse';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getTaskList(){
-    return ['Tarefa 1','Tarefa 2','Tarefa 3'];
+    return this.http.get<ITaskListResponse>('https://api.myjson.com/bins/ju1uc');
   }
 }

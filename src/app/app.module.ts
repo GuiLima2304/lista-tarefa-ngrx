@@ -9,6 +9,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ListTasksComponent } from './list-tasks/list-tasks.component';
 import { TaskItemComponent } from './task-item/task-item.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TaskItemComponent } from './task-item/task-item.component';
   imports: [
     BrowserModule,
     AppRoutingModule, 
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

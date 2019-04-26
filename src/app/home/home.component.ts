@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskService } from '../services/task.service';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,10 @@ export class HomeComponent implements OnInit {
   public text: string = '';
   public taskList: string[] = [];
 
-  constructor() { }
+  constructor(private taskService: TaskService) { }
 
   ngOnInit() {
+    this.taskService.getTaskList().subscribe(data => { this.taskList = data.taskList });
   }
 
   create(){

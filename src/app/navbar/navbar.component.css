@@ -8,3 +8,16 @@
     color: white;
     font-size: 20px;
 }
+
+a {
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+
+a.active {
+    opacity: .6;
+}

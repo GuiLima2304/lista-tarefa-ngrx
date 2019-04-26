@@ -10,6 +10,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ListTasksComponent } from './list-tasks/list-tasks.component';
 import { TaskItemComponent } from './task-item/task-item.component';
 import { HttpClientModule } from '@angular/common/http';
+import { InfoComponent } from './info/info.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     routingComponents,
     ListTasksComponent,
-    TaskItemComponent
+    TaskItemComponent,
+    InfoComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,10 @@
+.navbar {
+    position: fixed;
+    background: rgb(255,137,39);
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 50px;
+    color: white;
+    font-size: 20px;
+}

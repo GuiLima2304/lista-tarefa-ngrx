@@ -1,0 +1,8 @@
+<h1>LISTA DE TAREFAS</h1>
+
+<div class="create-task">
+  <input type="text" [(ngModel)]="text" placeholder="Digite aqui o texto da tarefa" >
+  <button (click)="create()">CRIAR</button>
+</div>
+<br>
+<app-list-tasks [taskList]="taskList"></app-list-tasks>

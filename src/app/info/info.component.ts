@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-info',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoComponent implements OnInit {
 
-  constructor() { }
+  public id;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.id = parseInt(this.route.snapshot.paramMap.get('id'));
   }
 
 }

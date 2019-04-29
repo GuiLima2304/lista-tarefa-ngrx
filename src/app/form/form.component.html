@@ -1,0 +1,18 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <h1>Formulário</h1>
+
+    <div class="form-group">
+      <label for="name">Nome</label><br>
+      <input type="text" class="form-control" [class.is-invalid]="name.dirty && name.invalid" formControlName="name"><br>
+      <span *ngIf="name.dirty && name.hasError('required')" class="text-danger">Campo obrigatório</span>
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-mail</label><br>
+      <input type="text" class="form-control" [class.is-invalid]="email.dirty && email.invalid" formControlName="email">
+      <span *ngIf="email.dirty && email.hasError('required')" class="text-danger">Campo obrigatório</span>
+      <span *ngIf="email.dirty && email.hasError('email')" class="text-danger">Digite um e-mail válido</span>
+    </div><br>
+
+    <button type="submit" [title]="form.invalid ? 'Preencha todos os campos obrigatórios e corrija os erros de validação para continuar' : ''" > Enviar</button>
+  </form>

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +12,7 @@ import { TaskItemComponent } from './task-item/task-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { InfoComponent } from './info/info.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +24,15 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     ListTasksComponent,
     TaskItemComponent,
     InfoComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

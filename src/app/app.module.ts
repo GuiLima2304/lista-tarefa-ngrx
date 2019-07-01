@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { InfoComponent } from './info/info.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { FormComponent } from './form/form.component';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './reducers/task.reducer';
 
 @NgModule({
   declarations: [
@@ -29,10 +31,11 @@ import { FormComponent } from './form/form.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, 
+    AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({ task: reducer })
   ],
   providers: [],
   bootstrap: [AppComponent]

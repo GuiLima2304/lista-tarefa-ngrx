@@ -5,4 +5,4 @@
   <button (click)="create()">CRIAR</button>
 </div>
 <br>
-<app-list-tasks [taskList]="taskList"></app-list-tasks>
+<app-list-tasks [taskList]="taskList$ | async"></app-list-tasks>

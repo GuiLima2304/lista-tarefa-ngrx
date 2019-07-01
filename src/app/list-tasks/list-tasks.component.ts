@@ -15,7 +15,7 @@ export class ListTasksComponent implements OnInit {
   ngOnInit() {
   }
 
-  navigateTo(id){
+  navigateTo(id) {
     this.router.navigate(['/info', id]);
   }
 

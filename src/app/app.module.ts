@@ -15,6 +15,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { FormComponent } from './form/form.component';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './reducers/task.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { reducer } from './reducers/task.reducer';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ task: reducer })
+    StoreModule.forRoot({ task: reducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

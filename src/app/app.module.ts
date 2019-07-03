@@ -17,6 +17,8 @@ import { StoreModule } from '@ngrx/store';
 import { reducer } from './reducers/task.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { TaskEffects } from './effects/task.effects';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot({ task: reducer }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([TaskEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

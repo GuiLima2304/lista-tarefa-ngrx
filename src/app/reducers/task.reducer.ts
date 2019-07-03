@@ -5,13 +5,15 @@ export interface TaskState {
 }
 
 export const initialState: TaskState = {
-    taskList: ['teste1']
+    taskList: []
 };
 
 export function reducer(state = initialState, action: TaskActions): TaskState {
     switch (action.type) {
         case TaskTypes.NewTask:
             return { ...state, taskList: [...state.taskList, action.payload] };
+        case TaskTypes.LoadTask:
+            return { ...state, taskList: action.payload.response.taskList };
         default:
             return state;
     }

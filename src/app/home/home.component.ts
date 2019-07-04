@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../services/task.service';
+import { TaskState } from '../reducers/task.reducer';
+import { Store, select } from '@ngrx/store';
+import { selectTaskList } from '../selectors/task.selectors';
+import { NewTask } from '../actions/task.actions';
 
 @Component({
   selector: 'app-home',
@@ -7,17 +11,16 @@ import { TaskService } from '../services/task.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public text: string = '';
-  public taskList: string[] = [];
+  public text = '';
+  public taskList$ = this.store.pipe(select(selectTaskList));
 
-  constructor(private taskService: TaskService) { }
+  constructor(private store: Store<TaskState>) { }
 
   ngOnInit() {
-    this.taskService.getTaskList().subscribe(data => { this.taskList = data.taskList });
   }
 
-  create(){
-    this.taskList.push(this.text);
+  create() {
+    this.store.dispatch(new NewTask(this.text));
     this.text = '';
   }
 

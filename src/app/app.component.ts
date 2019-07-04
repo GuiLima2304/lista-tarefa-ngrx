@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { GlobalState } from './reducers/global.reducer';
+import { selectLoading, selectShowAlert, selectMessageAlert } from './selectors/global.selectors';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +9,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Exemplo';
+  public showLoading$ = this.store.pipe(select(selectLoading));
+  public showAlert$ = this.store.pipe(select(selectShowAlert));
+  public messageAlert$ = this.store.pipe(select(selectMessageAlert));
 
-  public name = "Estaguinhos"
+  constructor(private store: Store<GlobalState>) {}
 
-  childEvent(msg){
+  childEvent(msg) {
     alert(msg);
   }
 }

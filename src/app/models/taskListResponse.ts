@@ -1,4 +1,4 @@
 export interface ITaskListResponse {
-    success: boolean,
-    taskList: string[]
+    success: boolean;
+    taskList: string[];
 }

@@ -13,6 +13,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { InfoComponent } from './info/info.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { FormComponent } from './form/form.component';
+import { StoreModule } from '@ngrx/store';
+import { taskReducer } from './reducers/task.reducer';
+import { globalReducer } from './reducers/global.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -29,10 +34,12 @@ import { FormComponent } from './form/form.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, 
+    AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({ task: taskReducer, global: globalReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,7 +9,7 @@ export class TaskService {
 
   constructor(private http: HttpClient) { }
 
-  getTaskList(){
+  getTaskList() {
     return this.http.get<ITaskListResponse>('https://api.myjson.com/bins/ju1uc');
   }
 }

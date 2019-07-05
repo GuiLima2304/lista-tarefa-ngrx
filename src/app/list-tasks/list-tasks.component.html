@@ -1,3 +1,4 @@
 <div *ngFor="let task of taskList; index as i">
-  <app-task-item [task]="task" (click)="navigateTo(i)"></app-task-item>
+  <app-task-item [task]="task" [index]="i" (click)="navigateTo(i)"></app-task-item>
+  
 </div>

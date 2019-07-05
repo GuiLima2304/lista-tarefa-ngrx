@@ -1,4 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DeleteTask } from '../actions/task.actions';
+import { Router } from '@angular/router';
+import { GlobalState } from '../reducers/global.reducer';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-task-item',
@@ -8,10 +12,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TaskItemComponent implements OnInit {
 
   @Input() task: string;
+  @Input() index: number;
 
-  constructor() { }
+  constructor(private router: Router, private store: Store<GlobalState>) { }
 
   ngOnInit() {
   }
 
+  Remover(index){
+    this.store.dispatch(new DeleteTask(index));
+  }
 }

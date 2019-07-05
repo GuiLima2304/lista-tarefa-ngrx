@@ -14,11 +14,10 @@ import { InfoComponent } from './info/info.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { FormComponent } from './form/form.component';
 import { StoreModule } from '@ngrx/store';
-import { reducer } from './reducers/task.reducer';
+import { taskReducer } from './reducers/task.reducer';
+import { globalReducer } from './reducers/global.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { EffectsModule } from '@ngrx/effects';
-import { TaskEffects } from './effects/task.effects';
 
 @NgModule({
   declarations: [
@@ -39,9 +38,8 @@ import { TaskEffects } from './effects/task.effects';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ task: reducer }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([TaskEffects])
+    StoreModule.forRoot({ task: taskReducer, global: globalReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

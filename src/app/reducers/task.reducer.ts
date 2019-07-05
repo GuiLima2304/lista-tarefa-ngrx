@@ -1,20 +1,24 @@
-import { TaskTypes, TaskActions } from '../actions/task.actions';
+import { TaskActions } from '../actions/task.actions';
 
 export interface TaskState {
     taskList: string[];
 }
 
 export const initialState: TaskState = {
-    taskList: []
+    taskList: ['Tarefa numero 1']
 };
 
-export function reducer(state = initialState, action: TaskActions): TaskState {
+export function taskReducer(state = initialState, action: TaskActions): TaskState {
+    const newState: TaskState = initialState;
     switch (action.type) {
-        case TaskTypes.NewTask:
-            return { ...state, taskList: [...state.taskList, action.payload] };
-        case TaskTypes.LoadTask:
-            return { ...state, taskList: action.payload.response.taskList };
+        case '[Task] New Task':
+            newState.taskList.push(action.payload);
+            return newState;
+        case '[Task] Delete Task':
+            newState.taskList.splice(action.payload, 1);
+            return newState;
         default:
             return state;
     }
 }
+

@@ -1,28 +1,15 @@
 import { Action } from '@ngrx/store';
-import { ITaskListResponse } from '../models/taskListResponse';
-
-export enum TaskTypes {
-    NewTask = '[Task Component] New Task',
-    LoadTask = '[Task Component] Load Tasks',
-    FetchTasks = '[Task Component] Fetch Task'
-}
 
 export class NewTask implements Action {
-    readonly type = TaskTypes.NewTask;
+    readonly type = '[Task] New Task';
 
-    constructor(public payload: string) { }
+    constructor(public payload: string) {}
 }
 
-export class LoadTask implements Action {
-    readonly type = TaskTypes.LoadTask;
-
-    constructor(public payload: { response: ITaskListResponse }) { }
+export class DeleteTask implements Action{
+    readonly type = '[Task] Delete Task';
+    
+    constructor(public payload: number) {}
 }
 
-export class FetchTasks implements Action {
-    readonly type = TaskTypes.FetchTasks;
-
-    constructor() {}
-}
-
-export type TaskActions = NewTask | FetchTasks | LoadTask;
+export type TaskActions = NewTask | DeleteTask;

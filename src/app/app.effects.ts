@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect } from '@ngrx/effects';
+import { Actions } from '@ngrx/store-devtools/src/reducer';
 
 @Injectable()
 export class AppEffects {

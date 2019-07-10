@@ -25,9 +25,9 @@ export class ListTasksComponent implements OnInit {
     }, 5000);*/
   }
 
-  navigateTo(id) {
+  /*navigateTo(id) {
     this.router.navigate(['/info', id]);
-  }
+  }*/
 
   
 

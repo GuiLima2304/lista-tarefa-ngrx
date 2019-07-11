@@ -8,8 +8,3 @@ export const selectTaskList = createSelector(
     selectTaskState,
     state => state.taskList
 );
-
-export const done = createSelector(
-    selectTaskState,
-    state => state.done
-);

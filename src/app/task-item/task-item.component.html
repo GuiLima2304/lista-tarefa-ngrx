@@ -1,6 +1,4 @@
-<div class="task-item" [class.teste]="doneState$">
+<div class="task-item">
   {{task}}
-  <input type="checkbox" class="checkConcluido" (click)="Done(index)">
-  <label *ngIf="doneState$ | async">Concluido</label>
   <button type="button" (click)="Remover(index)" class="btnDelete">Deletar</button>
 </div>

@@ -20,11 +20,8 @@ export function taskReducer(state = initialState, action: TaskActions): TaskStat
         case TaskTypes.DeleteTask:
             newState.taskList.splice(action.payload, 1);
             return newState;
-        case '[Task] Done Task':
-            newState.done = action.payload;
-            console.log(newState)
-            //newState.taskList[action.payload].done = ! newState.taskList[action.payload].done
-            return {... newState, done: action.payload} ;
+        case TaskTypes.LoadTask:
+            return {...state, taskList: action.payload.response.taskList };
         default:
             return state;
     }

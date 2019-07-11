@@ -18,6 +18,8 @@ import { taskReducer } from './reducers/task.reducer';
 import { globalReducer } from './reducers/global.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { TaskEffects } from './effects/task.effect';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot({ task: taskReducer, global: globalReducer }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([TaskEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

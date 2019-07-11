@@ -1,8 +1,11 @@
 import { Action } from '@ngrx/store';
+import { ITaskListResponse } from '../models/taskListResponse';
 
 export enum TaskTypes{
     NewTask = '[Task] New Task',
-    DeleteTask = '[Task] Delete Task'
+    DeleteTask = '[Task] Delete Task',
+    FetchTask = '[Task] Fetch Task',
+    LoadTask = '[Task] Load Task'
 }
 
 export class NewTask implements Action {
@@ -17,11 +20,17 @@ export class DeleteTask implements Action{
     constructor(public payload: number) {}
 }
 
-export class DoneTask implements Action{
-    readonly type = '[Task] Done Task';
+export class FetchTask implements Action{
+    readonly type = TaskTypes.FetchTask;
 
-    constructor(public payload: boolean) {}
 
+    constructor() {}
 }
 
-export type TaskActions = NewTask | DeleteTask | DoneTask;
+export class LoadTask implements Action{
+    readonly type = TaskTypes.LoadTask;
+
+    constructor(public payload: { response: ITaskListResponse }) {}
+}
+
+export type TaskActions = NewTask | DeleteTask | FetchTask | LoadTask ;

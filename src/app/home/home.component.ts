@@ -3,7 +3,7 @@ import { TaskService } from '../services/task.service';
 import { TaskState } from '../reducers/task.reducer';
 import { Store, select } from '@ngrx/store';
 import { selectTaskList } from '../selectors/task.selectors';
-import { NewTask } from '../actions/task.actions';
+import { NewTask, LoadTask, FetchTask } from '../actions/task.actions';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   constructor(private store: Store<TaskState>) { }
 
   ngOnInit() {
+    this.store.dispatch(new FetchTask());
   }
 
   create() {

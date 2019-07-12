@@ -13,6 +13,10 @@ export class TaskEffects{
             requestedPurchases$ = this.actions$.pipe(
                 ofType<FetchTask>(TaskTypes.FetchTask),
                 switchMap(() => this.taskService.getTaskList().pipe(
+                    /*map(response => {
+                        return { ...response, taskList: [response.taskList[0]] }
+                    }),*/
+                    //como nao eh uma lista, esta pegando diretamenta da posicao
                     catchError(() => of([]))
                 )),
                 map((response: ITaskListResponse) => new LoadTask({response}))

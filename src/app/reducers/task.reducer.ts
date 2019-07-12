@@ -6,13 +6,13 @@ export interface TaskState {
 }
 
 export const initialState: TaskState = {
-    taskList: ['Tarefa numero 1'],
+    taskList: [],
     done: false
 };
 
 export function taskReducer(state = initialState, action: TaskActions): TaskState {
-    const newState = initialState;
-
+    const newState = state;
+    
     switch (action.type) {
         case TaskTypes.NewTask:
             newState.taskList.push(action.payload);

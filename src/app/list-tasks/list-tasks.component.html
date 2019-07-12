@@ -1,4 +1,6 @@
+<button type="button" (click)="Teste()" class="btnTake">First</button>
 <div *ngFor="let task of taskList; index as i">
   <app-task-item [task]="task" [index]="i" ></app-task-item>
   <!--(click)="navigateTo(i)"-->
 </div>
+
